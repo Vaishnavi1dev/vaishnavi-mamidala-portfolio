@@ -68,10 +68,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 style={{ backgroundColor: 'rgb(97, 33, 15)', color: 'rgb(253, 240, 213)' }}
               >
                 <ExternalLink size={16} />
-                Live Demo
+                {liveUrl.includes('instagram.com') ? 'View Work' : 'Live Demo'}
               </a>
             )}
-            {githubUrl && (
+            {githubUrl && githubUrl !== '#' && (
               <a
                 href={githubUrl}
                 target="_blank"
