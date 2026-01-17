@@ -47,8 +47,7 @@ const ProjectsSection: React.FC = () => {
               Featured <span style={{ color: 'rgb(253, 240, 213)' }}>Projects</span>
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgb(253, 240, 213)' }}>
-              A collection of my recent work showcasing my skills in web development,
-              design, and problem-solving.
+              A showcase of my recent work in web development, AI, and creative design.
             </p>
           </div>
         </AnimatedContent>
