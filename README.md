@@ -1,73 +1,113 @@
-# Welcome to your Lovable project
+# Portfolio Website
 
-## Project info
+A modern, interactive portfolio website built with React, TypeScript, and cutting-edge web technologies.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- ✨ **Glassmorphism Design** - Beautiful frosted glass effects throughout
+- 🎨 **3D Graphics** - Interactive Three.js scenes and animations
+- 🌊 **Smooth Animations** - GSAP-powered scroll effects and transitions
+- 📱 **Responsive Design** - Optimized for all devices
+- ⚡ **Performance Optimized** - Fast loading and smooth interactions
+- 🎯 **Modern Stack** - React 18, TypeScript, Vite, Tailwind CSS
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18, TypeScript
+- **Styling**: Tailwind CSS, Custom CSS
+- **Animations**: GSAP, Framer Motion
+- **3D Graphics**: Three.js, React Three Fiber
+- **Build Tool**: Vite
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js (v18 or higher)
+- npm or yarn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd portfolio-website
+```
 
-Follow these steps:
+2. Install dependencies:
+```bash
+npm install
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open [http://localhost:8080](http://localhost:8080) in your browser
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Available Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm test` - Run tests
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/          # React components
+│   ├── ui/             # Reusable UI components
+│   ├── HeroSection.tsx # Hero section with 3D graphics
+│   ├── AboutSection.tsx# About section
+│   ├── ProjectsSection.tsx # Projects showcase
+│   ├── SkillsSection.tsx   # Skills display
+│   └── ContactSection.tsx  # Contact form
+├── pages/              # Page components
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+└── styles/             # Global styles
 
-This project is built with:
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Customization
 
-## How can I deploy this project?
+### Colors and Theme
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+The project uses CSS custom properties for theming. You can modify the color scheme in `src/index.css`:
 
-## Can I connect a custom domain to my Lovable project?
+```css
+:root {
+  --primary: 186 100% 72%;
+  --background: 220 20% 4%;
+  /* ... other variables */
+}
+```
 
-Yes, you can!
+### Glassmorphism Effects
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+The project includes several glassmorphism utility classes:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- `.glass` - Standard glass effect
+- `.glass-card` - Card-style glass
+- `.glass-subtle` - Subtle glass effect
+- `.glass-intense` - Strong glass effect
+- `.glass-hover` - Hover animations
+
+## Deployment
+
+Build the project for production:
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` directory, ready for deployment to any static hosting service.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).

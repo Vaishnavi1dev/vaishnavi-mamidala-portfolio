@@ -55,32 +55,34 @@ const projects = [
 
 const ProjectsSection: React.FC = () => {
   return (
-    <section id="projects" className="section-container">
-      <AnimatedContent distance={80} direction="vertical" reverse duration={1}>
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A collection of my recent work showcasing my skills in web development,
-            design, and problem-solving.
-          </p>
-        </div>
-      </AnimatedContent>
+    <section id="projects" className="min-h-screen w-full py-24 relative" style={{ backgroundColor: 'rgb(97, 33, 15)' }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <AnimatedContent distance={80} direction="vertical" reverse duration={1}>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4" style={{ color: 'rgb(253, 240, 213)' }}>
+              Featured <span style={{ color: 'rgb(253, 240, 213)' }}>Projects</span>
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgb(253, 240, 213)' }}>
+              A collection of my recent work showcasing my skills in web development,
+              design, and problem-solving.
+            </p>
+          </div>
+        </AnimatedContent>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <AnimatedContent
-            key={project.title}
-            distance={100}
-            direction="horizontal"
-            reverse={index % 2 === 0}
-            duration={1}
-            delay={index * 0.1}
-          >
-            <ProjectCard {...project} />
-          </AnimatedContent>
-        ))}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <AnimatedContent
+              key={project.title}
+              distance={100}
+              direction="horizontal"
+              reverse={index % 2 === 0}
+              duration={1}
+              delay={index * 0.1}
+            >
+              <ProjectCard {...project} />
+            </AnimatedContent>
+          ))}
+        </div>
       </div>
     </section>
   );

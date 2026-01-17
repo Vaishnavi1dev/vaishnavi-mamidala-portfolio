@@ -21,28 +21,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <ElectricBorder
-      color="#7df9ff"
+      color="rgb(253, 240, 213)"
       speed={1.5}
       chaos={0.4}
       thickness={2}
       style={{ borderRadius: 16 }}
       className="group"
     >
-      <div className="card-gradient rounded-2xl overflow-hidden">
+      <div className="rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105" style={{ backgroundColor: 'rgb(253, 240, 213)' }}>
         <div className="relative h-48 overflow-hidden">
           <img
             src={image}
             alt={title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         </div>
 
         <div className="p-6">
-          <h3 className="text-xl font-heading font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+          <h3 className="text-xl font-heading font-bold mb-2 transition-colors" style={{ color: 'rgb(97, 33, 15)' }}>
             {title}
           </h3>
-          <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+          <p className="text-sm mb-4 line-clamp-2" style={{ color: 'rgb(97, 33, 15)' }}>
             {description}
           </p>
 
@@ -50,7 +50,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-xs rounded-full bg-secondary text-secondary-foreground"
+                className="px-3 py-1 text-xs rounded-full"
+                style={{ backgroundColor: 'rgb(97, 33, 15)', color: 'rgb(253, 240, 213)' }}
               >
                 {tag}
               </span>
@@ -63,7 +64,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:glow-box transition-all duration-300"
+                className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-all duration-300"
+                style={{ backgroundColor: 'rgb(97, 33, 15)', color: 'rgb(253, 240, 213)' }}
               >
                 <ExternalLink size={16} />
                 Live Demo
@@ -74,7 +76,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-border text-foreground text-sm font-medium hover:border-primary hover:text-primary transition-all duration-300"
+                className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-all duration-300 border"
+                style={{ backgroundColor: 'transparent', color: 'rgb(97, 33, 15)', borderColor: 'rgb(97, 33, 15)' }}
               >
                 <Github size={16} />
                 Code

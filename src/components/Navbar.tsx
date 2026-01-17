@@ -27,23 +27,30 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass py-4' : 'py-6'
+        scrolled ? 'py-4' : 'py-6'
       }`}
+      style={{
+        backgroundColor: scrolled ? 'rgb(97, 33, 15)' : 'transparent'
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <button
           onClick={() => scrollTo('hero')}
-          className="text-2xl font-heading font-bold text-gradient"
+          className="text-2xl font-heading font-bold transition-colors duration-300"
+          style={{ color: scrolled ? 'rgb(253, 240, 213)' : 'rgb(97, 33, 15)' }}
         >
           Portfolio
         </button>
 
         <div className="hidden md:flex items-center gap-8">
-          {['About', 'Projects', 'Skills', 'Contact'].map((item) => (
+          {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
             <button
               key={item}
               onClick={() => scrollTo(item.toLowerCase())}
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+              className="font-medium transition-colors duration-300"
+              style={{ color: scrolled ? 'rgb(253, 240, 213)' : 'rgb(97, 33, 15)' }}
+              onMouseEnter={(e) => e.target.style.color = scrolled ? 'rgb(255, 255, 255)' : 'rgb(120, 50, 30)'}
+              onMouseLeave={(e) => e.target.style.color = scrolled ? 'rgb(253, 240, 213)' : 'rgb(97, 33, 15)'}
             >
               {item}
             </button>
@@ -56,7 +63,11 @@ const Navbar: React.FC = () => {
             e.preventDefault();
             scrollTo('contact');
           }}
-          className="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:glow-box transition-all duration-300"
+          className="px-6 py-2 rounded-full font-medium hover:glow-box transition-all duration-300"
+          style={{ 
+            backgroundColor: scrolled ? 'rgb(253, 240, 213)' : 'rgb(97, 33, 15)', 
+            color: scrolled ? 'rgb(97, 33, 15)' : 'rgb(253, 240, 213)' 
+          }}
         >
           Hire Me
         </a>

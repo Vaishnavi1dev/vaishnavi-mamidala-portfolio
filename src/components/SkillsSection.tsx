@@ -1,110 +1,100 @@
 import React from 'react';
 import AnimatedContent from './AnimatedContent';
 import StarBorder from './StarBorder';
-import { Code2, Palette, Database, Globe, Smartphone, Cpu } from 'lucide-react';
+import { Code2, Video, FileCode, Layers, Coffee, Braces, Zap, BarChart3, Database, TrendingUp, Brain, Film, Figma, Palette, Play } from 'lucide-react';
 
 const skillCategories = [
   {
-    title: 'Frontend',
+    title: 'Programming',
     icon: Code2,
-    skills: ['React', 'TypeScript', 'Next.js', 'Vue.js', 'Tailwind CSS', 'GSAP'],
+    skills: [
+      { name: 'Python', icon: FileCode },
+      { name: 'MERN Stack', icon: Layers },
+      { name: 'Java', icon: Coffee },
+      { name: 'JavaScript', icon: Braces },
+      { name: 'C', icon: Zap },
+      { name: 'Scikit-learn', icon: Brain },
+      { name: 'NumPy', icon: BarChart3 },
+      { name: 'Pandas', icon: Database },
+      { name: 'Matplotlib', icon: TrendingUp },
+      { name: 'PyTorch', icon: Brain },
+    ],
     color: '#7df9ff',
   },
   {
-    title: 'Backend',
-    icon: Database,
-    skills: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'GraphQL', 'REST APIs'],
-    color: '#a855f7',
-  },
-  {
-    title: 'Design',
-    icon: Palette,
-    skills: ['Figma', 'Adobe XD', 'UI/UX', 'Motion Design', 'Responsive Design', '3D Graphics'],
-    color: '#06b6d4',
-  },
-  {
-    title: 'DevOps',
-    icon: Globe,
-    skills: ['Docker', 'AWS', 'CI/CD', 'Git', 'Vercel', 'Linux'],
-    color: '#22c55e',
-  },
-  {
-    title: 'Mobile',
-    icon: Smartphone,
-    skills: ['React Native', 'Flutter', 'iOS', 'Android', 'PWA', 'Expo'],
-    color: '#f59e0b',
-  },
-  {
-    title: 'AI/ML',
-    icon: Cpu,
-    skills: ['OpenAI', 'TensorFlow', 'PyTorch', 'LangChain', 'Computer Vision', 'NLP'],
+    title: 'Video Editing & Designing',
+    icon: Video,
+    skills: [
+      { name: 'DaVinci Resolve', icon: Film },
+      { name: 'Figma', icon: Figma },
+      { name: 'Affinity', icon: Palette },
+      { name: 'Motion Graphics', icon: Play },
+    ],
     color: '#ec4899',
   },
 ];
 
 const SkillsSection: React.FC = () => {
   return (
-    <section id="skills" className="section-container relative">
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-glow-secondary/20 rounded-full blur-3xl" />
-      </div>
+    <section id="skills" className="min-h-screen w-full py-24 relative" style={{ backgroundColor: 'rgb(253, 240, 213)' }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="relative z-10">
+          <AnimatedContent distance={80} direction="vertical" reverse duration={1}>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4" style={{ color: 'rgb(97, 33, 15)' }}>
+                My <span style={{ color: 'rgb(97, 33, 15)' }}>Skills</span>
+              </h2>
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgb(97, 33, 15)' }}>
+                Technologies and tools I use to bring ideas to life
+              </p>
+            </div>
+          </AnimatedContent>
 
-      <div className="relative z-10">
-        <AnimatedContent distance={80} direction="vertical" reverse duration={1}>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              My <span className="text-gradient">Skills</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Technologies and tools I use to bring ideas to life
-            </p>
-          </div>
-        </AnimatedContent>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
-            <AnimatedContent
-              key={category.title}
-              distance={100}
-              direction="vertical"
-              duration={1}
-              delay={index * 0.1}
-            >
-              <StarBorder speed={2} color={category.color} className="h-full">
-                <div className="card-gradient rounded-xl p-6 h-full border border-border/50">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div
-                      className="w-12 h-12 rounded-lg flex items-center justify-center"
-                      style={{ backgroundColor: `${category.color}20` }}
-                    >
-                      <category.icon
-                        size={24}
-                        style={{ color: category.color }}
-                      />
+          <div className="flex flex-col lg:flex-row gap-8 justify-center items-stretch max-w-5xl mx-auto">
+            {skillCategories.map((category, index) => (
+              <AnimatedContent
+                key={category.title}
+                distance={100}
+                direction="vertical"
+                duration={1}
+                delay={index * 0.1}
+                className="flex-1 min-w-0"
+              >
+                <StarBorder speed={2} color="rgb(97, 33, 15)" className="h-full">
+                  <div className="rounded-xl p-8 h-full flex flex-col min-h-[400px] hover:scale-105 transition-all duration-300" style={{ backgroundColor: 'rgb(97, 33, 15)' }}>
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ backgroundColor: 'rgba(253, 240, 213, 0.2)' }}>
+                        <category.icon
+                          size={28}
+                          style={{ color: 'rgb(253, 240, 213)' }}
+                        />
+                      </div>
+                      <h3 className="text-2xl font-heading font-bold" style={{ color: 'rgb(253, 240, 213)' }}>
+                        {category.title}
+                      </h3>
                     </div>
-                    <h3 className="text-xl font-heading font-bold">
-                      {category.title}
-                    </h3>
-                  </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="skill-badge"
-                        style={{
-                          borderColor: `${category.color}40`,
-                        }}
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                    <div className={`flex-1 ${category.title === 'Video Editing & Designing' ? 'flex flex-col items-center gap-3' : 'flex flex-wrap gap-3 content-start justify-center'}`}>
+                      {category.skills.map((skill) => (
+                        <div
+                          key={skill.name}
+                          className="flex items-center gap-2 px-4 py-3 rounded-full text-sm font-medium transition-all duration-300 border hover:scale-105"
+                          style={{ 
+                            backgroundColor: '#fdf0d5ff', 
+                            color: 'rgb(97, 33, 15)',
+                            borderColor: 'rgb(253, 240, 213)'
+                          }}
+                        >
+                          <skill.icon size={18} style={{ color: 'rgb(97, 33, 15)' }} />
+                          <span>{skill.name}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </StarBorder>
-            </AnimatedContent>
-          ))}
+                </StarBorder>
+              </AnimatedContent>
+            ))}
+          </div>
         </div>
       </div>
     </section>
