@@ -4,7 +4,6 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import SkillsSection from '@/components/SkillsSection';
-import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import SmoothScroll from '@/components/SmoothScroll';
 import ClickSpark from '@/components/ClickSpark';
@@ -35,7 +34,6 @@ const Index: React.FC = () => {
               <AboutSection />
               <ProjectsSection />
               <SkillsSection />
-              <ContactSection />
             </main>
             <Footer />
           </SmoothScroll>
