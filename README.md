@@ -1,27 +1,45 @@
-# Portfolio Website
+# Vaishnavi Mamidala - Portfolio Website
 
-A modern, interactive portfolio website built with React, TypeScript, and cutting-edge web technologies.
+A modern, interactive portfolio website showcasing my skills as a Video Editor, Designer & Developer. Built with React, TypeScript, and cutting-edge web technologies.
 
-## Features
+## 🚀 Live Demo
 
-- ✨ **Glassmorphism Design** - Beautiful frosted glass effects throughout
-- 🎨 **3D Graphics** - Interactive Three.js scenes and animations
-- 🌊 **Smooth Animations** - GSAP-powered scroll effects and transitions
-- 📱 **Responsive Design** - Optimized for all devices
-- ⚡ **Performance Optimized** - Fast loading and smooth interactions
-- 🎯 **Modern Stack** - React 18, TypeScript, Vite, Tailwind CSS
+**[View Live Portfolio](https://vaishnavi-mamidala-portfolio.vercel.app/)**
 
-## Tech Stack
+## 👋 About Me
 
-- **Frontend**: React 18, TypeScript
-- **Styling**: Tailwind CSS, Custom CSS
-- **Animations**: GSAP, Framer Motion
-- **3D Graphics**: Three.js, React Three Fiber
-- **Build Tool**: Vite
-- **UI Components**: shadcn/ui
+I'm Vaishnavi Mamidala, a passionate 2nd year B.Tech student at Keshav Memorial Engineering College, Hyderabad. I specialize in:
+
+- 💻 **Web Development** - Full-stack applications with MERN stack
+- 🎬 **Video Editing** - Professional content creation with DaVinci Resolve
+- 🎨 **UI/UX Design** - Modern interfaces with Figma and creative tools
+- 🤖 **AI/ML Projects** - Intelligent systems and data analytics
+
+## 🌟 Featured Projects
+
+- **[Realtime Quiz Hub](https://realtime-quiz-hub.vercel.app/)** - Interactive real-time quiz platform
+- **[Rail-AI](https://rail-ai.vercel.app/)** - AI-powered railway management system
+- **[Video Editing Work](https://www.instagram.com/vaishnavieee.m/)** - Creative content on Instagram
+
+## ✨ Features
+
+- ✨ **Modern Design** - Clean, professional interface with cream/brown theme
+- 🎯 **Interactive Animations** - GSAP-powered scroll effects and transitions
+- 📱 **Responsive Design** - Optimized for all devices and screen sizes
+- ⚡ **Performance Optimized** - Fast loading with Vite build system
+- 🎨 **Visual Effects** - Custom terminal effects and animated backgrounds
+- 🌐 **Real Projects** - Showcases actual deployed applications
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS, Custom CSS animations
+- **Animations**: GSAP (GreenSock)
+- **Graphics**: OGL for terminal effects
 - **Icons**: Lucide React
+- **Deployment**: Vercel
 
-## Getting Started
+## � Getting Started
 
 ### Prerequisites
 
@@ -32,8 +50,8 @@ A modern, interactive portfolio website built with React, TypeScript, and cuttin
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
-cd portfolio-website
+git clone https://github.com/Vaishnavi1dev/vaishnavi-mamidala-portfolio.git
+cd vaishnavi-mamidala-portfolio
 ```
 
 2. Install dependencies:
@@ -48,66 +66,67 @@ npm run dev
 
 4. Open [http://localhost:8080](http://localhost:8080) in your browser
 
-## Available Scripts
+## 🚀 Deployment
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm test` - Run tests
+This portfolio is deployed on Vercel. To deploy your own version:
 
-## Project Structure
+1. Fork this repository
+2. Connect your GitHub account to Vercel
+3. Import the project and deploy
+4. Your portfolio will be live at `your-project-name.vercel.app`
+
+## 📁 Project Structure
 
 ```
 src/
 ├── components/          # React components
-│   ├── ui/             # Reusable UI components
-│   ├── HeroSection.tsx # Hero section with 3D graphics
-│   ├── AboutSection.tsx# About section
-│   ├── ProjectsSection.tsx # Projects showcase
-│   ├── SkillsSection.tsx   # Skills display
-│   └── ContactSection.tsx  # Contact form
+│   ├── HeroSection.tsx     # Hero section with name and intro
+│   ├── AboutSection.tsx    # About me and education
+│   ├── SkillsSection.tsx   # Programming & creative skills
+│   ├── ProjectsSection.tsx # Featured projects showcase
+│   ├── ContactSection.tsx  # Contact information
+│   ├── FaultyTerminal.tsx  # Terminal background effect
+│   └── ...                 # Other components
 ├── pages/              # Page components
-├── hooks/              # Custom React hooks
-├── lib/                # Utility functions
-└── styles/             # Global styles
-
+└── styles/             # Global styles and Tailwind config
 ```
 
-## Customization
+## 🎨 Customization
 
-### Colors and Theme
+### Theme Colors
 
-The project uses CSS custom properties for theming. You can modify the color scheme in `src/index.css`:
+The portfolio uses a warm cream and brown color scheme:
 
 ```css
-:root {
-  --primary: 186 100% 72%;
-  --background: 220 20% 4%;
-  /* ... other variables */
-}
+/* Primary colors */
+background: rgb(253, 240, 213) /* Cream */
+text: rgb(97, 33, 15)         /* Dark Brown */
 ```
 
-### Glassmorphism Effects
+### Adding Your Own Projects
 
-The project includes several glassmorphism utility classes:
+Update the projects array in `src/components/ProjectsSection.tsx`:
 
-- `.glass` - Standard glass effect
-- `.glass-card` - Card-style glass
-- `.glass-subtle` - Subtle glass effect
-- `.glass-intense` - Strong glass effect
-- `.glass-hover` - Hover animations
-
-## Deployment
-
-Build the project for production:
-
-```bash
-npm run build
+```typescript
+const projects = [
+  {
+    title: 'Your Project Name',
+    description: 'Project description...',
+    image: '/your-project-image.png',
+    tags: ['React', 'Node.js', 'MongoDB'],
+    liveUrl: 'https://your-project.vercel.app/',
+    githubUrl: 'https://github.com/yourusername/project',
+  },
+  // ... more projects
+];
 ```
 
-The built files will be in the `dist` directory, ready for deployment to any static hosting service.
+## 📄 Available Scripts
 
-## License
+- `npm run dev` - Start development server
+- `npm run build` - Build for production  
+- `npm run preview` - Preview production build
+
+## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
