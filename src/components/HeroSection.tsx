@@ -9,8 +9,12 @@ const HeroSection: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    // Set up performance optimizations
+    gsap.set("*", { force3D: true });
+    
     const tl = gsap.timeline({
-      delay: 0.5
+      delay: 0.3,
+      ease: "power2.out"
     });
     
     if (titleRef.current) {
@@ -23,45 +27,95 @@ const HeroSection: React.FC = () => {
         
         text.split('').forEach((char, index) => {
           const span = document.createElement('span');
-          span.textContent = char === ' ' ? '\u00A0' : char; // Use non-breaking space
+          span.textContent = char === ' ' ? '\u00A0' : char;
           span.style.display = 'inline-block';
-          span.style.opacity = '0';
-          span.style.transform = 'translateY(100px) rotateX(-90deg)';
+          span.style.willChange = 'transform, opacity';
+          span.style.backfaceVisibility = 'hidden';
+          span.style.perspective = '1000px';
           word.appendChild(span);
         });
       });
       
-      // Animate each character in name words
+      // Animate each character in name words with optimized settings
       nameWords.forEach((word, wordIndex) => {
         const chars = word.querySelectorAll('span');
-        tl.fromTo(chars, {
+        
+        // Set initial state
+        gsap.set(chars, {
           opacity: 0,
-          y: 100,
-          rotateX: -90
-        }, {
+          y: 60,
+          rotateX: -45,
+          scale: 0.8,
+          transformOrigin: "center bottom",
+          force3D: true
+        });
+        
+        tl.to(chars, {
           opacity: 1,
           y: 0,
           rotateX: 0,
-          stagger: 0.05, // Stagger between characters
-          duration: 0.8,
-          ease: 'power3.out'
-        }, wordIndex * 0.3); // Delay between words
+          scale: 1,
+          stagger: {
+            amount: 0.3,
+            ease: "power2.out"
+          },
+          duration: 0.6,
+          ease: "back.out(1.2)",
+          force3D: true,
+          transformOrigin: "center bottom"
+        }, wordIndex * 0.2);
       });
     }
     
     if (subtitleRef.current) {
       const subtitleWords = subtitleRef.current.querySelectorAll('.cursor-target');
-      tl.fromTo(subtitleWords, {
+      
+      // Set initial state for subtitle words
+      gsap.set(subtitleWords, {
         opacity: 0,
-        y: 30
-      }, {
+        y: 20,
+        scale: 0.95,
+        force3D: true
+      });
+      
+      tl.to(subtitleWords, {
         opacity: 1,
         y: 0,
-        stagger: 0.05,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, '-=0.4');
+        scale: 1,
+        stagger: {
+          amount: 0.4,
+          ease: "power1.out"
+        },
+        duration: 0.5,
+        ease: "power2.out",
+        force3D: true
+      }, "-=0.2");
     }
+    
+    // Animate buttons with smooth entrance
+    const buttons = document.querySelectorAll('.hero-button');
+    if (buttons.length > 0) {
+      gsap.set(buttons, {
+        opacity: 0,
+        y: 30,
+        scale: 0.9,
+        force3D: true
+      });
+      
+      tl.to(buttons, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        stagger: 0.1,
+        duration: 0.6,
+        ease: "back.out(1.1)",
+        force3D: true
+      }, "-=0.1");
+    }
+    
+    return () => {
+      tl.kill();
+    };
   }, []);
   return <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: 'rgb(253, 240, 213)' }}>
       <TargetCursor 
@@ -106,12 +160,12 @@ const HeroSection: React.FC = () => {
 
           <div className="flex flex-wrap gap-4 justify-center">
             <FloatingAnimation direction="up" duration={3} distance={10} delay={0}>
-              <a href="#projects" className="cursor-target px-8 py-4 rounded-full font-semibold text-lg hover:glow-box-intense transition-all duration-300 transform hover:scale-105 w-48 text-center" style={{ backgroundColor: 'rgb(97, 33, 15)', color: 'rgb(253, 240, 213)' }}>
+              <a href="#projects" className="hero-button cursor-target px-8 py-4 rounded-full font-semibold text-lg hover:glow-box-intense transition-all duration-300 transform hover:scale-105 w-48 text-center" style={{ backgroundColor: 'rgb(97, 33, 15)', color: 'rgb(253, 240, 213)' }}>
                 View My Work
               </a>
             </FloatingAnimation>
             <FloatingAnimation direction="up" duration={3} distance={10} delay={0}>
-              <a href="#contact" className="cursor-target px-8 py-4 rounded-full font-semibold text-lg hover:glow-box-intense transition-all duration-300 transform hover:scale-105 w-48 text-center" style={{ backgroundColor: 'rgb(97, 33, 15)', color: 'rgb(253, 240, 213)' }}>
+              <a href="#contact" className="hero-button cursor-target px-8 py-4 rounded-full font-semibold text-lg hover:glow-box-intense transition-all duration-300 transform hover:scale-105 w-48 text-center" style={{ backgroundColor: 'rgb(97, 33, 15)', color: 'rgb(253, 240, 213)' }}>
                 Get In Touch
               </a>
             </FloatingAnimation>
