@@ -12,21 +12,43 @@ const HeroSection: React.FC = () => {
     const tl = gsap.timeline({
       delay: 0.5
     });
+    
     if (titleRef.current) {
-      const nameWords = titleRef.current.querySelectorAll('.cursor-target');
-      tl.fromTo(nameWords, {
-        opacity: 0,
-        y: 100,
-        rotateX: -90
-      }, {
-        opacity: 1,
-        y: 0,
-        rotateX: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: 'power3.out'
+      const nameWords = titleRef.current.querySelectorAll('.name-word');
+      
+      // Split only the name words into individual characters
+      nameWords.forEach((word) => {
+        const text = word.textContent || '';
+        word.innerHTML = '';
+        
+        text.split('').forEach((char, index) => {
+          const span = document.createElement('span');
+          span.textContent = char === ' ' ? '\u00A0' : char; // Use non-breaking space
+          span.style.display = 'inline-block';
+          span.style.opacity = '0';
+          span.style.transform = 'translateY(100px) rotateX(-90deg)';
+          word.appendChild(span);
+        });
+      });
+      
+      // Animate each character in name words
+      nameWords.forEach((word, wordIndex) => {
+        const chars = word.querySelectorAll('span');
+        tl.fromTo(chars, {
+          opacity: 0,
+          y: 100,
+          rotateX: -90
+        }, {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          stagger: 0.05, // Stagger between characters
+          duration: 0.8,
+          ease: 'power3.out'
+        }, wordIndex * 0.3); // Delay between words
       });
     }
+    
     if (subtitleRef.current) {
       const subtitleWords = subtitleRef.current.querySelectorAll('.cursor-target');
       tl.fromTo(subtitleWords, {
@@ -55,8 +77,8 @@ const HeroSection: React.FC = () => {
           perspective: '1000px'
         }}>
             <div className="flex flex-wrap justify-center gap-2 mb-2">
-              <span className="cursor-target inline-block" style={{ color: '#61210fff' }}>Vaishnavi</span>
-              <span className="cursor-target inline-block" style={{ color: '#61210fff' }}>Mamidala</span>
+              <span className="cursor-target name-word inline-block" style={{ color: '#61210fff' }}>Vaishnavi</span>
+              <span className="cursor-target name-word inline-block" style={{ color: '#61210fff' }}>Mamidala</span>
             </div>
             <div className="text-3xl md:text-4xl lg:text-5xl" style={{ color: 'rgb(97, 33, 15)' }}>
               <TypingAnimation
@@ -68,7 +90,7 @@ const HeroSection: React.FC = () => {
             </div>
           </h1>
 
-          <div className="text-xl md:text-3xl max-w-3xl mx-auto mb-10 -mt-4 flex flex-wrap justify-center gap-2" style={{ color: 'rgb(97, 33, 15)' }}>
+          <div ref={subtitleRef} className="text-xl md:text-3xl max-w-3xl mx-auto mb-10 -mt-4 flex flex-wrap justify-center gap-2" style={{ color: 'rgb(97, 33, 15)' }}>
             <span className="cursor-target inline-block">I</span>
             <span className="cursor-target inline-block">craft</span>
             <span className="cursor-target inline-block">beautiful</span>
