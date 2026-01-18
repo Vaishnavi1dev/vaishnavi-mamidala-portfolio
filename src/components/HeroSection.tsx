@@ -58,19 +58,21 @@ const HeroSection: React.FC = () => {
               <span className="cursor-target inline-block" style={{ color: '#61210fff' }}>Vaishnavi</span>
               <span className="cursor-target inline-block" style={{ color: '#61210fff' }}>Mamidala</span>
             </div>
-            <div className="flex flex-wrap justify-center gap-2 text-3xl md:text-4xl lg:text-5xl" style={{ color: 'rgb(97, 33, 15)' }}>
-              <span className="cursor-target inline-block">Video</span>
-              <span className="cursor-target inline-block">Editor,</span>
-              <span className="cursor-target inline-block">Designer</span>
-              <span className="cursor-target inline-block">&</span>
-              <span className="cursor-target inline-block">Developer</span>
+            <div className="text-3xl md:text-4xl lg:text-5xl" style={{ color: 'rgb(97, 33, 15)' }}>
+              <TypingAnimation
+                text="Video Editor, Designer & Developer"
+                speed={100}
+                delay={2000}
+                individualWords={true}
+              />
             </div>
           </h1>
 
           <div className="text-xl md:text-3xl max-w-3xl mx-auto mb-10 -mt-4 flex flex-wrap justify-center gap-2" style={{ color: 'rgb(97, 33, 15)' }}>
             <span className="cursor-target inline-block">I</span>
             <span className="cursor-target inline-block">craft</span>
-            <span className="cursor-target inline-block">beautiful,</span>
+            <span className="cursor-target inline-block">beautiful</span>
+            <span className="cursor-target inline-block">,</span>
             <span className="cursor-target inline-block">interactive</span>
             <span className="cursor-target inline-block">digital</span>
             <span className="cursor-target inline-block">experiences</span>

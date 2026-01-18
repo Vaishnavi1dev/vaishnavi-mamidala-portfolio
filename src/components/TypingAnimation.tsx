@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import React, { useEffect, useState } from 'react';
 
 interface TypingAnimationProps {
   text: string;
@@ -8,60 +7,96 @@ interface TypingAnimationProps {
   className?: string;
   style?: React.CSSProperties;
   onComplete?: () => void;
+  individualWords?: boolean;
 }
 
 const TypingAnimation: React.FC<TypingAnimationProps> = ({
   text,
-  speed = 0.1,
+  speed = 100,
   delay = 0,
   className = '',
   style = {},
   onComplete,
+  individualWords = false,
 }) => {
-  const textRef = useRef<HTMLSpanElement>(null);
-  const cursorRef = useRef<HTMLSpanElement>(null);
+  const [displayText, setDisplayText] = useState('');
+  const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    const textElement = textRef.current;
-    const cursorElement = cursorRef.current;
-    if (!textElement || !cursorElement) return;
+    setDisplayText('');
+    setIsComplete(false);
 
-    // Clear text initially
-    textElement.textContent = '';
-    
-    // Cursor blinking animation
-    gsap.to(cursorElement, {
-      opacity: 0,
-      duration: 0.5,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power2.inOut',
-    });
+    const timeout = setTimeout(() => {
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index < text.length) {
+          setDisplayText(text.slice(0, index + 1));
+          index++;
+        } else {
+          clearInterval(interval);
+          setIsComplete(true);
+          onComplete?.();
+        }
+      }, speed);
 
-    // Typing animation
-    const tl = gsap.timeline({ delay });
-    
-    text.split('').forEach((char, index) => {
-      tl.call(() => {
-        textElement.textContent += char;
-      }, [], index * speed);
-    });
+      return () => clearInterval(interval);
+    }, delay);
 
-    // Hide cursor after typing is complete
-    tl.call(() => {
-      gsap.to(cursorElement, { opacity: 0, duration: 0.3 });
-      onComplete?.();
-    });
-
-    return () => {
-      tl.kill();
-    };
+    return () => clearTimeout(timeout);
   }, [text, speed, delay, onComplete]);
+
+  if (isComplete && individualWords) {
+    const parts = text.split(/(\s+|,|&)/).filter(part => part.trim() !== '' || part === ' ');
+    
+    return (
+      <span className={className} style={style}>
+        <span className="flex flex-wrap justify-center gap-1 items-center">
+          {parts.map((part, index) => {
+            if (part === ' ') return null;
+            return (
+              <span key={index} className="cursor-target inline-block">
+                {part}
+              </span>
+            );
+          })}
+          <span 
+            className="inline-block w-0.5 h-6 bg-current ml-1"
+            style={{
+              animation: 'blink 1s infinite'
+            }}
+          >
+            |
+          </span>
+        </span>
+        <style jsx>{`
+          @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+          }
+        `}</style>
+      </span>
+    );
+  }
 
   return (
     <span className={className} style={style}>
-      <span ref={textRef}></span>
-      <span ref={cursorRef} className="inline-block w-0.5 h-6 bg-current ml-1">|</span>
+      <span className={individualWords ? '' : 'cursor-target'}>
+        {displayText}
+      </span>
+      <span 
+        className="inline-block w-0.5 h-6 bg-current ml-1"
+        style={{
+          animation: 'blink 1s infinite'
+        }}
+      >
+        |
+      </span>
+      <style jsx>{`
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
+        }
+      `}</style>
     </span>
   );
 };

@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <button
           onClick={() => scrollTo('hero')}
-          className="text-2xl font-heading font-bold transition-colors duration-300"
+          className="cursor-target text-2xl font-heading font-bold transition-colors duration-300"
           style={{ color: scrolled ? 'rgb(253, 240, 213)' : 'rgb(97, 33, 15)' }}
         >
           Portfolio
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
             <button
               key={item}
               onClick={() => scrollTo(item.toLowerCase())}
-              className="font-medium transition-colors duration-300"
+              className="cursor-target font-medium transition-colors duration-300"
               style={{ color: scrolled ? 'rgb(253, 240, 213)' : 'rgb(97, 33, 15)' }}
               onMouseEnter={(e) => e.target.style.color = scrolled ? 'rgb(255, 255, 255)' : 'rgb(120, 50, 30)'}
               onMouseLeave={(e) => e.target.style.color = scrolled ? 'rgb(253, 240, 213)' : 'rgb(97, 33, 15)'}
@@ -57,20 +57,17 @@ const Navbar: React.FC = () => {
           ))}
         </div>
 
-        <a
-          href="#contact"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollTo('contact');
-          }}
-          className="px-6 py-2 rounded-full font-medium hover:glow-box transition-all duration-300"
-          style={{ 
-            backgroundColor: scrolled ? 'rgb(253, 240, 213)' : 'rgb(97, 33, 15)', 
-            color: scrolled ? 'rgb(97, 33, 15)' : 'rgb(253, 240, 213)' 
-          }}
-        >
-          Hire Me
-        </a>
+        <div className="flex gap-1">
+          <span className="cursor-target px-6 py-2 rounded-full font-medium hover:glow-box transition-all duration-300" 
+                style={{ 
+                  backgroundColor: scrolled ? 'rgb(253, 240, 213)' : 'rgb(97, 33, 15)', 
+                  color: scrolled ? 'rgb(97, 33, 15)' : 'rgb(253, 240, 213)' 
+                }}
+                onClick={() => scrollTo('contact')}>
+            <span className="cursor-target inline-block">Hire</span>
+            <span className="cursor-target inline-block ml-1">Me</span>
+          </span>
+        </div>
       </div>
     </nav>
   );
