@@ -1,6 +1,7 @@
 import React from 'react';
 import AnimatedContent from './AnimatedContent';
 import ProjectCard from './ProjectCard';
+import SmoothReveal from './SmoothReveal';
 
 const projects = [
   {
@@ -44,26 +45,22 @@ const ProjectsSection: React.FC = () => {
         <AnimatedContent distance={80} direction="vertical" reverse duration={1}>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4" style={{ color: 'rgb(253, 240, 213)' }}>
-              Featured <span style={{ color: 'rgb(253, 240, 213)' }}>Projects</span>
+              <span style={{ color: 'rgb(253, 240, 213)' }}>Projects</span>
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgb(253, 240, 213)' }}>
-              Showcasing my recent work in web development, AI, and creative design.
+              Showcasing my recent work in web development, and creative design.
             </p>
           </div>
         </AnimatedContent>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <AnimatedContent
+            <SmoothReveal
               key={project.title}
-              distance={100}
-              direction="horizontal"
-              reverse={index % 2 === 0}
-              duration={1}
-              delay={index * 0.1}
+              delay={index * 0.15}
             >
               <ProjectCard {...project} />
-            </AnimatedContent>
+            </SmoothReveal>
           ))}
         </div>
       </div>

@@ -70,7 +70,37 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
           delay,
         });
       },
-      once: true,
+      onLeave: () => {
+        gsap.to(element, {
+          x,
+          y,
+          opacity: animateOpacity ? initialOpacity : 1,
+          scale: scale !== 1 ? 0.9 : 1,
+          duration: duration * 0.5,
+          ease,
+        });
+      },
+      onEnterBack: () => {
+        gsap.to(element, {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration,
+          ease,
+          delay: delay * 0.5,
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(element, {
+          x,
+          y,
+          opacity: animateOpacity ? initialOpacity : 1,
+          scale: scale !== 1 ? 0.9 : 1,
+          duration: duration * 0.5,
+          ease,
+        });
+      },
     });
 
     return () => {

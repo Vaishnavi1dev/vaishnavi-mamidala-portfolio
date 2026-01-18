@@ -1,6 +1,7 @@
 import React from 'react';
 import AnimatedContent from './AnimatedContent';
 import StarBorder from './StarBorder';
+import StaggerAnimation from './StaggerAnimation';
 import { Code2, Video, FileCode, Layers, Coffee, Braces, Zap, BarChart3, Database, TrendingUp, Brain, Film, Figma, Palette, Play } from 'lucide-react';
 
 const skillCategories = [
@@ -74,7 +75,12 @@ const SkillsSection: React.FC = () => {
                       </h3>
                     </div>
 
-                    <div className={`flex-1 ${category.title === 'Video Editing & Designing' ? 'flex flex-col items-center gap-3' : 'flex flex-wrap gap-3 content-start justify-center'}`}>
+                    <StaggerAnimation 
+                      className={`flex-1 ${category.title === 'Video Editing & Designing' ? 'flex flex-col items-center gap-3' : 'flex flex-wrap gap-3 content-start justify-center'}`}
+                      staggerDelay={0.1}
+                      direction="up"
+                      distance={30}
+                    >
                       {category.skills.map((skill) => (
                         <div
                           key={skill.name}
@@ -89,7 +95,7 @@ const SkillsSection: React.FC = () => {
                           <span>{skill.name}</span>
                         </div>
                       ))}
-                    </div>
+                    </StaggerAnimation>
                   </div>
                 </StarBorder>
               </AnimatedContent>
