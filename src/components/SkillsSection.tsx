@@ -86,7 +86,7 @@ const SkillsSection: React.FC = () => {
                           key={skill.name}
                           className="flex items-center gap-2 px-4 py-3 rounded-full text-sm font-medium transition-all duration-300 border hover:scale-105"
                           style={{ 
-                            backgroundColor: '#fdf0d5ff', 
+                            backgroundColor: 'rgb(253, 240, 213)', 
                             color: 'rgb(97, 33, 15)',
                             borderColor: 'rgb(253, 240, 213)'
                           }}

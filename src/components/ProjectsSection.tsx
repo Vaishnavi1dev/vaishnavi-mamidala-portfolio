@@ -21,6 +21,13 @@ const projects = [
     githubUrl: 'https://github.com/Vaishnavi1dev/rail-ai',
   },
   {
+    title: 'Coin Catcher Hand Control',
+    description: 'An innovative hand gesture-controlled game where players catch falling coins using computer vision and hand tracking technology.',
+    image: '/coin-catcher.png',
+    tags: ['Python', 'OpenCV', 'Computer Vision', 'Hand Tracking', 'Game Development'],
+    githubUrl: 'https://github.com/Vaishnavi1dev/coin-catcher-hand-control',
+  },
+  {
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio website showcasing my skills in web development, video editing, and design with interactive animations.',
     image: '/portfolio.png',
