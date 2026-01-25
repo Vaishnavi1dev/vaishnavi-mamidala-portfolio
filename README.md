@@ -10,10 +10,10 @@ A modern, interactive portfolio website showcasing my skills as a Video Editor, 
 
 I'm Vaishnavi Mamidala, a passionate 2nd year B.Tech student at Keshav Memorial Engineering College, Hyderabad. I specialize in:
 
-- 💻 **Web Development** - Full-stack applications with MERN stack
-- 🎬 **Video Editing** - Professional content creation with DaVinci Resolve
-- 🎨 **UI/UX Design** - Modern interfaces with Figma and creative tools
-- 🤖 **AI/ML Projects** - Intelligent systems and data analytics
+- **Web Development** - Full-stack applications with MERN stack
+- **Video Editing** - Professional content creation with DaVinci Resolve
+- **UI/UX Design** - Modern interfaces with Figma and creative tools
+- **AI/ML Projects** - Intelligent systems and data analytics
 
 ## 🌟 Featured Projects
 
@@ -23,12 +23,12 @@ I'm Vaishnavi Mamidala, a passionate 2nd year B.Tech student at Keshav Memorial 
 
 ## ✨ Features
 
-- ✨ **Modern Design** - Clean, professional interface with cream/brown theme
-- 🎯 **Interactive Animations** - GSAP-powered scroll effects and transitions
-- 📱 **Responsive Design** - Optimized for all devices and screen sizes
-- ⚡ **Performance Optimized** - Fast loading with Vite build system
-- 🎨 **Visual Effects** - Custom terminal effects and animated backgrounds
-- 🌐 **Real Projects** - Showcases actual deployed applications
+- **Modern Design** - Clean, professional interface with cream/brown theme
+- **Interactive Animations** - GSAP-powered scroll effects and transitions
+- **Responsive Design** - Optimized for all devices and screen sizes
+- **Performance Optimized** - Fast loading with Vite build system
+- **Visual Effects** - Custom terminal effects and animated backgrounds
+- **Real Projects** - Showcases actual deployed applications
 
 ## 🛠️ Tech Stack
 
