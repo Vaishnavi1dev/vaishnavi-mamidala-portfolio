@@ -18,7 +18,7 @@ const skillCategories = [
       { name: 'NumPy', icon: BarChart3 },
       { name: 'Pandas', icon: Database },
       { name: 'Matplotlib', icon: TrendingUp },
-      { name: 'PyTorch', icon: Brain },
+      
     ],
     color: '#7df9ff',
   },
